@@ -14,6 +14,12 @@
 		7693CE8E21C8C50F001A50C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7693CE8C21C8C50F001A50C1 /* LaunchScreen.storyboard */; };
 		7693CE9921C8C50F001A50C1 /* BudgetMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CE9821C8C50F001A50C1 /* BudgetMeTests.swift */; };
 		7693CEA421C8C50F001A50C1 /* BudgetMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEA321C8C50F001A50C1 /* BudgetMeUITests.swift */; };
+		7693CEB721C8C555001A50C1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB121C8C555001A50C1 /* Currency.swift */; };
+		7693CEB821C8C555001A50C1 /* UnitedStatesCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB221C8C555001A50C1 /* UnitedStatesCurrency.swift */; };
+		7693CEB921C8C555001A50C1 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB321C8C555001A50C1 /* Purchase.swift */; };
+		7693CEBA21C8C555001A50C1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB421C8C555001A50C1 /* Category.swift */; };
+		7693CEBB21C8C555001A50C1 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB521C8C555001A50C1 /* PaymentType.swift */; };
+		7693CEBC21C8C555001A50C1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB621C8C555001A50C1 /* Company.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		7693CE9F21C8C50F001A50C1 /* BudgetMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7693CEA321C8C50F001A50C1 /* BudgetMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMeUITests.swift; sourceTree = "<group>"; };
 		7693CEA521C8C50F001A50C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7693CEB121C8C555001A50C1 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		7693CEB221C8C555001A50C1 /* UnitedStatesCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitedStatesCurrency.swift; sourceTree = "<group>"; };
+		7693CEB321C8C555001A50C1 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		7693CEB421C8C555001A50C1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		7693CEB521C8C555001A50C1 /* PaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
+		7693CEB621C8C555001A50C1 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				7693CE8321C8C50F001A50C1 /* AppDelegate.swift */,
+				7693CEB421C8C555001A50C1 /* Category.swift */,
+				7693CEB621C8C555001A50C1 /* Company.swift */,
+				7693CEB121C8C555001A50C1 /* Currency.swift */,
+				7693CEB521C8C555001A50C1 /* PaymentType.swift */,
+				7693CEB321C8C555001A50C1 /* Purchase.swift */,
+				7693CEB221C8C555001A50C1 /* UnitedStatesCurrency.swift */,
 				7693CE8521C8C50F001A50C1 /* ViewController.swift */,
 				7693CE8721C8C50F001A50C1 /* Main.storyboard */,
 				7693CE8A21C8C50F001A50C1 /* Assets.xcassets */,
@@ -256,8 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7693CEB721C8C555001A50C1 /* Currency.swift in Sources */,
+				7693CEB921C8C555001A50C1 /* Purchase.swift in Sources */,
+				7693CEB821C8C555001A50C1 /* UnitedStatesCurrency.swift in Sources */,
 				7693CE8621C8C50F001A50C1 /* ViewController.swift in Sources */,
 				7693CE8421C8C50F001A50C1 /* AppDelegate.swift in Sources */,
+				7693CEBB21C8C555001A50C1 /* PaymentType.swift in Sources */,
+				7693CEBA21C8C555001A50C1 /* Category.swift in Sources */,
+				7693CEBC21C8C555001A50C1 /* Company.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
