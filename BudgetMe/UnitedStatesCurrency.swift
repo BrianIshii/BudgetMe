@@ -28,6 +28,11 @@ public class UnitedStatesCurrency : Currency {
         self.cents = cents
     }
     
+    init() {
+        dollars = 0
+        cents = 0
+    }
+    
     public func display() -> String {
         var s: String
         if (cents > 9) {

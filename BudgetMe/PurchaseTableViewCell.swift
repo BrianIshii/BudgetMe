@@ -9,6 +9,10 @@
 import UIKit
 
 class PurchaseTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var purchaseNameLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     
 }
