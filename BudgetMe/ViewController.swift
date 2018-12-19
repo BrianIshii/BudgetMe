@@ -71,7 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         let total = currency?.createCurrency(total: totalTextField.text ?? "") ?? UnitedStatesCurrency()
         let company = Company(name: companyTextField.text ?? "")
-        let category = Category(name: categoryTextField.text ?? "", color: UIColor.orange)
+        let category = Category(name: categoryTextField.text ?? "", color: "orange")
         let paymentType = PaymentType()
         
         purchase = Purchase(total: total, company: company, category: category, paymentType: paymentType)

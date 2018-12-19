@@ -11,13 +11,13 @@ import UIKit
 
 public class Category {
     private var name: String
-    private var color: UIColor
+    private var color: String
     
     init() {
         self.name = ""
-        self.color = UIColor.white
+        self.color = "white"
     }
-    init(name: String, color: UIColor) {
+    init(name: String, color: String) {
         self.name = name
         self.color = color
     }
@@ -26,7 +26,7 @@ public class Category {
         return name
     }
     
-    func displayColor() -> UIColor {
+    func displayColor() -> String {
         return color
     }
     
