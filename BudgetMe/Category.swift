@@ -9,15 +9,33 @@
 import Foundation
 import UIKit
 
-public class Category {
+public class Category: Codable {
     private var name: String
-    private var color: UIColor
+    private var color: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case color
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(color, forKey: .color)
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        color = try container.decode(String.self, forKey: .color)
+    }
     
     init() {
         self.name = ""
-        self.color = UIColor.white
+        self.color = "white"
     }
-    init(name: String, color: UIColor) {
+    
+    init(name: String, color: String) {
         self.name = name
         self.color = color
     }
@@ -26,7 +44,7 @@ public class Category {
         return name
     }
     
-    func displayColor() -> UIColor {
+    func displayColor() -> String {
         return color
     }
     

@@ -7,9 +7,25 @@
 //
 
 import Foundation
-public class UnitedStatesCurrency : Currency {
+public class UnitedStatesCurrency : Currency, Codable {
     var dollars: Int
     var cents: Int
+    enum CodingKeys: Int, CodingKey {
+        case dollars
+        case cents
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(dollars, forKey: .dollars)
+        try container.encode(cents, forKey: .cents)
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        dollars = try container.decode(Int.self, forKey: .dollars)
+        cents = try container.decode(Int.self, forKey: .cents)
+    }
     
     init?(dollars: Int, cents: Int) {
         guard cents < 100 else {
@@ -44,7 +60,7 @@ public class UnitedStatesCurrency : Currency {
         return s
     }
     
-    public func createCurrency(total: String) -> Currency {
+    public func createCurrency(total: String) -> UnitedStatesCurrency {
         let number = Int(total)
         if (number != nil) {
             return UnitedStatesCurrency(dollars: number ?? 0, cents: 0) ?? UnitedStatesCurrency()
