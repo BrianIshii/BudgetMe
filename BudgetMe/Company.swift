@@ -8,5 +8,13 @@
 
 import Foundation
 public class Company {
+    private var name: String
     
+    init(name: String) {
+        self.name = name
+    }
+    
+    func display() -> String {
+        return name
+    }
 }
