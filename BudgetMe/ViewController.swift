@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var paymentTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
+    
     var selectImage = UITapGestureRecognizer()
     var purchase: Purchase?
     var currency: Currency?
@@ -63,8 +64,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let button = sender as? UIBarButtonItem, button === submitButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+        guard let button = sender as? UIButton, button === submitButton else {
+            os_log("The submit button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
         
