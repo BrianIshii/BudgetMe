@@ -9,4 +9,5 @@
 import Foundation
 public protocol Currency {
     func display() -> String
+    func createCurrency(total: String) -> Currency
 }

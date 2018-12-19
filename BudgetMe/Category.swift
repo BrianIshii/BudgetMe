@@ -13,6 +13,10 @@ public class Category {
     private var name: String
     private var color: UIColor
     
+    init() {
+        self.name = ""
+        self.color = UIColor.white
+    }
     init(name: String, color: UIColor) {
         self.name = name
         self.color = color

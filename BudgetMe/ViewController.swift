@@ -7,21 +7,24 @@
 //
 
 import UIKit
-
+import os.log
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var totalTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var paymentTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var submitButton: UIButton!
     var selectImage = UITapGestureRecognizer()
+    var purchase: Purchase?
+    var currency: Currency?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        amountTextField.delegate = self
+        totalTextField.delegate = self
         companyTextField.delegate = self
         categoryTextField.delegate = self
         paymentTextField.delegate = self
@@ -33,21 +36,50 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         selectImage.numberOfTouchesRequired = 1
         photoImageView.addGestureRecognizer(selectImage)
         photoImageView.isUserInteractionEnabled = true
+        
+        updateSaveButtonState()
+        currency = UnitedStatesCurrency()
     }
 
+    // text field delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    @IBAction func submitPurchase(_ sender: UIButton) {
-        print("submitted")
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        submitButton.isEnabled = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+    }
+    
+    private func updateSaveButtonState() {
+        let text = totalTextField.text ?? ""
+        submitButton.isEnabled = !text.isEmpty
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard let button = sender as? UIBarButtonItem, button === submitButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let total = currency?.createCurrency(total: totalTextField.text ?? "") ?? UnitedStatesCurrency()
+        let company = Company(name: companyTextField.text ?? "")
+        let category = Category(name: categoryTextField.text ?? "", color: UIColor.orange)
+        let paymentType = PaymentType()
+        
+        purchase = Purchase(total: total, company: company, category: category, paymentType: paymentType)
     }
     
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         print("selectImage")
         // Hide the keyboard.
-        amountTextField.resignFirstResponder()
+        totalTextField.resignFirstResponder()
 //        companyTextField.resignFirstResponder()
 //        categoryTextField.resignFirstResponder()
 //        paymentTextField.resignFirstResponder()

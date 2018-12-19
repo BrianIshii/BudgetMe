@@ -102,7 +102,7 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
-                                            <action selector="submitPurchase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iZL-uv-gK5"/>
+                                            <segue destination="okf-bx-CGl" kind="unwind" unwindAction="unwindToPurchasesListWithSender:" id="evM-iV-psQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -158,14 +158,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="amountTextField" destination="hdk-PZ-vF7" id="8wN-jo-nMr"/>
                         <outlet property="categoryTextField" destination="COo-CF-By2" id="nE0-3S-6q6"/>
                         <outlet property="companyTextField" destination="XpU-9D-hha" id="vcG-Ha-QCK"/>
                         <outlet property="paymentTextField" destination="OWO-7K-u9j" id="d8o-aR-33A"/>
                         <outlet property="photoImageView" destination="Nyb-1g-vNi" id="nw5-jB-3t5"/>
+                        <outlet property="submitButton" destination="AfD-i6-BXf" id="th9-hU-zQt"/>
+                        <outlet property="totalTextField" destination="hdk-PZ-vF7" id="8wN-jo-nMr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="okf-bx-CGl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="934" y="194"/>
         </scene>

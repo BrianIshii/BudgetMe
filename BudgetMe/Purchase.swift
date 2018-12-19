@@ -12,6 +12,13 @@ class Purchase {
     var company: Company;
     var category: Category;
     var paymentType: PaymentType;
+
+    init() {
+        self.total = UnitedStatesCurrency();
+        self.company = Company();
+        self.category = Category();
+        self.paymentType = PaymentType();
+    }
     
     init(total: Currency, company: Company, category: Category, paymentType: PaymentType) {
         self.total = total;

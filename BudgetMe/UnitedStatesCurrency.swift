@@ -43,4 +43,11 @@ public class UnitedStatesCurrency : Currency {
         print(s)
         return s
     }
+    
+    public func createCurrency(total: String) -> Currency {
+        if (total == "") {
+            return UnitedStatesCurrency()
+        }
+        return UnitedStatesCurrency(dollars: Int(total) ?? 0, cents: 0) ?? UnitedStatesCurrency()
+    }
 }

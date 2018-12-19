@@ -28,12 +28,26 @@ class PurchaseTableViewController: UITableViewController {
         loadSamplePurchases()
     }
     
+    @IBAction func unwindToPurchasesList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ViewController {
+            let purchase = sourceViewController.purchase
+            
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: purchases.count, section: 0)
+            
+            purchases.append(purchase ?? Purchase())
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return purchases.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "PurchaseTableViewCell"

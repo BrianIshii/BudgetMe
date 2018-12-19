@@ -10,6 +10,10 @@ import Foundation
 public class Company {
     private var name: String
     
+    init() {
+        self.name = "Default Company"
+    }
+    
     init(name: String) {
         self.name = name
     }
