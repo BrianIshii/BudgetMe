@@ -34,7 +34,6 @@ public class Category: Codable {
         self.name = ""
         self.color = "white"
     }
-    
     init(name: String, color: String) {
         self.name = name
         self.color = color
