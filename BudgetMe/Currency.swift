@@ -7,7 +7,8 @@
 //
 
 import Foundation
-public protocol Currency {
+public protocol Currency: Codable {
     func display() -> String
-    func createCurrency(total: String) -> Currency
+    func createCurrency(total: String) -> UnitedStatesCurrency
+    func encode(to encoder: Encoder) throws
 }

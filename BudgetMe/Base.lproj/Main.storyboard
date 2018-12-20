@@ -227,7 +227,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="CXS-em-lKJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="bPr-SC-tGI"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="FLO-gG-QZk"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SfO-K1-dFT">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="tYS-wH-i0w"/>

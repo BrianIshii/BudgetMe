@@ -22,6 +22,7 @@
 		7693CEBC21C8C555001A50C1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB621C8C555001A50C1 /* Company.swift */; };
 		7693CEBE21C99729001A50C1 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEBD21C99729001A50C1 /* PurchaseTableViewCell.swift */; };
 		7693CEC221C9A2D7001A50C1 /* PurchaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEC121C9A2D7001A50C1 /* PurchaseTableViewController.swift */; };
+		7696378F21CC315B008BDD22 /* purchases.json in Resources */ = {isa = PBXBuildFile; fileRef = 7696378E21CC315B008BDD22 /* purchases.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		7693CEB621C8C555001A50C1 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		7693CEBD21C99729001A50C1 /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
 		7693CEC121C9A2D7001A50C1 /* PurchaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewController.swift; sourceTree = "<group>"; };
+		7696378E21CC315B008BDD22 /* purchases.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = purchases.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		7693CE8221C8C50F001A50C1 /* BudgetMe */ = {
 			isa = PBXGroup;
 			children = (
+				7696378E21CC315B008BDD22 /* purchases.json */,
 				7693CE8321C8C50F001A50C1 /* AppDelegate.swift */,
 				7693CEB421C8C555001A50C1 /* Category.swift */,
 				7693CEB621C8C555001A50C1 /* Company.swift */,
@@ -253,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7696378F21CC315B008BDD22 /* purchases.json in Resources */,
 				7693CE8E21C8C50F001A50C1 /* LaunchScreen.storyboard in Resources */,
 				7693CE8B21C8C50F001A50C1 /* Assets.xcassets in Resources */,
 				7693CE8921C8C50F001A50C1 /* Main.storyboard in Resources */,
