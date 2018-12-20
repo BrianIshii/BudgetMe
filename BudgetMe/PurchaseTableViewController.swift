@@ -11,6 +11,7 @@ import os.log
 
 class PurchaseTableViewController: UITableViewController {
     var purchases = [Purchase]()
+    var fileName = "purchases"
     
     private func loadSamplePurchases() {
         let purchase1 = Purchase(total: UnitedStatesCurrency(dollars: 1, cents: 9) ?? UnitedStatesCurrency(), company: Company(name: "McDonald's"), category: Category(name: "food", color: "blue"), paymentType: PaymentType())
@@ -23,17 +24,73 @@ class PurchaseTableViewController: UITableViewController {
     }
     
     private func savePurchases() {
-        //let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(purchases, toFile: Purchase.ArchiveURL.path)
-        do {
-            try NSKeyedArchiver.archivedData(withRootObject: purchases, requiringSecureCoding: false)
-            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
-        } catch {
-            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+        //let fileManager = FileManager.default
+        //let path = fileManager.currentDirectoryPath
+        
+        //let fileName = "purchases.json"
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json")  {
+            print("saving")
+            let jsonData = try! JSONEncoder().encode(purchases)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            print(jsonData)
+            print(url)
+            //print(url.absoluteString)
+            do {
+                try jsonData.write(to: url, options: .atomic)
+            } catch {
+                print("could not save purchases")
+            }
+            
+            do {
+//                let jsonData = jsonString.data(using: .utf8)!
+//                let decoder = JSONDecoder()
+//                let purchase = try! decoder.decode([Purchase].self, from: jsonData)
+//
+//                //let data = try Data(contentsOf: URL(fileURLWithPath: url.absoluteString), options: .mappedIfSafe)
+//                // let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+//                print(purchase)
+                if let savedPurchases = loadPurchases(fileName: fileName) {
+                    print("could load data")
+                    //purchases += savedPurchases
+                } else {
+                    print("could not load data")
+                }
+            } catch {
+                print("could not load data")
+            }
+        } else {
+            print("failed to save")
         }
     }
+//
+//    let jsonData = try! JSONEncoder().encode(purchases)
+//    let jsonString = String(data: jsonData, encoding: .utf8)!
+//    print(jsonString)
+//    //let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(purchases, toFile: Purchase.ArchiveURL.path)
+//    do {
+//    try NSKeyedArchiver.archivedData(withRootObject: purchases, requiringSecureCoding: false)
+//    os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+//    } catch {
+//    os_log("Failed to save meals...", log: OSLog.default, type: .error)
+//    }
+//}
+
+    struct ResponseData: Decodable, Encodable {
+        var purchases: [Purchase]
+    }
     
-    private func loadPurchases() -> [Purchase]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Purchase.ArchiveURL.path) as? [Purchase]
+    func loadPurchases(fileName: String) -> [Purchase]? {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode([Purchase].self, from: data)
+                return jsonData
+            } catch {
+                print("cannot load purchases method")
+            }
+        }
+        return nil
     }
     
     override func viewDidLoad() {
@@ -41,9 +98,8 @@ class PurchaseTableViewController: UITableViewController {
         
         //use the edit button
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        // load data
-        if let savedPurchases = loadPurchases() {
+        print("hi")
+        if let savedPurchases = loadPurchases(fileName: fileName) {
             purchases += savedPurchases
         } else {
             loadSamplePurchases()
