@@ -13,7 +13,7 @@ class Purchase: Codable {
     
     var total: UnitedStatesCurrency;
     var company: Company;
-    var category: Category;
+    var category: PurchaseCategory;
     var paymentType: PaymentType;
     
     enum CodingKeys: String, CodingKey {
@@ -35,7 +35,7 @@ class Purchase: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         total = try container.decode(UnitedStatesCurrency.self, forKey: .total)
         company = try container.decode(Company.self, forKey: .company)
-        category = try container.decode(Category.self, forKey: .category)
+        category = try container.decode(PurchaseCategory.self, forKey: .category)
         paymentType = try container.decode(PaymentType.self, forKey: .paymentType)
     }
     
@@ -43,11 +43,11 @@ class Purchase: Codable {
     init() {
         self.total = UnitedStatesCurrency();
         self.company = Company();
-        self.category = Category();
+        self.category = PurchaseCategory();
         self.paymentType = PaymentType();
     }
     
-    init(total: UnitedStatesCurrency, company: Company, category: Category, paymentType: PaymentType) {
+    init(total: UnitedStatesCurrency, company: Company, category: PurchaseCategory, paymentType: PaymentType) {
         self.total = total;
         self.company = company;
         self.category = category;

@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     var selectImage = UITapGestureRecognizer()
     var purchase: Purchase?
-    var currency: Currency?
+    var currency = UnitedStatesCurrency()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +37,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         selectImage.numberOfTouchesRequired = 1
         photoImageView.addGestureRecognizer(selectImage)
         photoImageView.isUserInteractionEnabled = true
-        
+        totalTextField.addTarget(self, action: #selector(totalTextFieldDidChange(_:)), for: .editingChanged)
+
         updateSaveButtonState()
         currency = UnitedStatesCurrency()
     }
-
+    
+    @objc func totalTextFieldDidChange(_ textField: UITextField) {
+        textField.text = currency.currencyFormatter(total: textField.text!)
+    }
+    
     // text field delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -69,9 +74,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             return
         }
         
-        let total = currency?.createCurrency(total: totalTextField.text ?? "") ?? UnitedStatesCurrency()
+        let total = currency.createCurrency(total: totalTextField.text ?? "")
         let company = Company(name: companyTextField.text ?? "")
-        let category = Category(name: categoryTextField.text ?? "", color: "orange")
+        let category = PurchaseCategory(name: categoryTextField.text ?? "", color: "orange")
         let paymentType = PaymentType()
         
         purchase = Purchase(total: total, company: company, category: category, paymentType: paymentType)

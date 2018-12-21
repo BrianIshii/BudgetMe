@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class Category: Codable {
+public class PurchaseCategory: Codable {
     private var name: String
     private var color: String
     

@@ -13,67 +13,45 @@ class PurchaseTableViewController: UITableViewController {
     var purchases = [Purchase]()
     var fileName = "purchases"
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //use the edit button
+        navigationItem.leftBarButtonItem = editButtonItem
+        print("hi")
+        if let savedPurchases = loadPurchases(fileName: fileName) {
+            purchases += savedPurchases
+        } else {
+            loadSamplePurchases()
+        }
+    }
+    
     private func loadSamplePurchases() {
-        let purchase1 = Purchase(total: UnitedStatesCurrency(dollars: 1, cents: 9) ?? UnitedStatesCurrency(), company: Company(name: "McDonald's"), category: Category(name: "food", color: "blue"), paymentType: PaymentType())
+        let purchase1 = Purchase(total: UnitedStatesCurrency(dollars: 1, cents: 9) ?? UnitedStatesCurrency(), company: Company(name: "McDonald's"), category: PurchaseCategory(name: "food", color: "blue"), paymentType: PaymentType())
         
-        let purchase2 = Purchase(total: UnitedStatesCurrency(dollars: 10, cents: 99) ?? UnitedStatesCurrency(), company: Company(name: "Game Stop"), category: Category(name: "games", color: "red"), paymentType: PaymentType())
+        let purchase2 = Purchase(total: UnitedStatesCurrency(dollars: 10, cents: 99) ?? UnitedStatesCurrency(), company: Company(name: "Game Stop"), category: PurchaseCategory(name: "games", color: "red"), paymentType: PaymentType())
         
-        let purchase3 = Purchase(total: UnitedStatesCurrency(dollars: 40, cents: 00) ?? UnitedStatesCurrency(), company: Company(name: "Shell"), category: Category(name: "car", color: "green"), paymentType: PaymentType())
+        let purchase3 = Purchase(total: UnitedStatesCurrency(dollars: 40, cents: 00) ?? UnitedStatesCurrency(), company: Company(name: "Shell"), category: PurchaseCategory(name: "car", color: "green"), paymentType: PaymentType())
         
         purchases += [purchase1, purchase2, purchase3]
     }
     
-    private func savePurchases() {
-        //let fileManager = FileManager.default
-        //let path = fileManager.currentDirectoryPath
+    private func savePurchases(purchases: [Purchase]) {
         
-        //let fileName = "purchases.json"
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json")  {
             print("saving")
             let jsonData = try! JSONEncoder().encode(purchases)
             let jsonString = String(data: jsonData, encoding: .utf8)!
-            print(jsonData)
-            print(url)
-            //print(url.absoluteString)
+//            print(jsonData)
+//            print(url)
             do {
                 try jsonData.write(to: url, options: .atomic)
             } catch {
                 print("could not save purchases")
             }
-            
-            do {
-//                let jsonData = jsonString.data(using: .utf8)!
-//                let decoder = JSONDecoder()
-//                let purchase = try! decoder.decode([Purchase].self, from: jsonData)
-//
-//                //let data = try Data(contentsOf: URL(fileURLWithPath: url.absoluteString), options: .mappedIfSafe)
-//                // let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-//                print(purchase)
-                if let savedPurchases = loadPurchases(fileName: fileName) {
-                    print("could load data")
-                    //purchases += savedPurchases
-                } else {
-                    print("could not load data")
-                }
-            } catch {
-                print("could not load data")
-            }
         } else {
             print("failed to save")
         }
     }
-//
-//    let jsonData = try! JSONEncoder().encode(purchases)
-//    let jsonString = String(data: jsonData, encoding: .utf8)!
-//    print(jsonString)
-//    //let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(purchases, toFile: Purchase.ArchiveURL.path)
-//    do {
-//    try NSKeyedArchiver.archivedData(withRootObject: purchases, requiringSecureCoding: false)
-//    os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
-//    } catch {
-//    os_log("Failed to save meals...", log: OSLog.default, type: .error)
-//    }
-//}
 
     struct ResponseData: Decodable, Encodable {
         var purchases: [Purchase]
@@ -93,35 +71,13 @@ class PurchaseTableViewController: UITableViewController {
         return nil
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                //use the edit button
-        navigationItem.leftBarButtonItem = editButtonItem
-        print("hi")
-        if let savedPurchases = loadPurchases(fileName: fileName) {
-            purchases += savedPurchases
-        } else {
-            loadSamplePurchases()
-        }
-    }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             purchases.remove(at: indexPath.row)
-            savePurchases()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            purchases.remove(at: indexPath.row)
+            savePurchases(purchases: purchases)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -139,7 +95,7 @@ class PurchaseTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
         
-        savePurchases()
+        savePurchases(purchases: purchases)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -11,4 +11,5 @@ public protocol Currency: Codable {
     func display() -> String
     func createCurrency(total: String) -> UnitedStatesCurrency
     func encode(to encoder: Encoder) throws
+    func currencyFormatter(total: String) -> String
 }
