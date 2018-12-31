@@ -169,7 +169,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="okf-bx-CGl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="853"/>
+            <point key="canvasLocation" x="-5287" y="2713"/>
         </scene>
         <!--Purchases-->
         <scene sceneID="iNb-gp-zMO">
@@ -237,13 +237,91 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21k-xB-6r5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="854.1229385307347"/>
+            <point key="canvasLocation" x="-6138" y="2713"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Budgets-->
+        <scene sceneID="V1x-zT-iVQ">
+            <objects>
+                <tableViewController id="RcI-XP-bis" customClass="BudgetTableViewController" customModule="BudgetMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="XmB-5Z-BXs" customClass="Budget" customModule="BudgetMe" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="E2n-zb-YqJ" propertyAccessControl="none">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Month and Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKL-hh-fOI">
+                                    <rect key="frame" x="79" y="9" width="216" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vlp-nE-2Tf" customClass="BudgetTableViewCell" customModule="BudgetMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vlp-nE-2Tf" id="ijd-NU-NPb" customClass="BudgetTableViewCell" customModule="BudgetMe" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZw-tY-hof">
+                                            <rect key="frame" x="16" y="0.0" width="105" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vay-4N-tAT">
+                                            <rect key="frame" x="283" y="0.0" width="92" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="budgetName" destination="dZw-tY-hof" id="1Tl-Zl-UZx"/>
+                                    <outlet property="total" destination="vay-4N-tAT" id="5G2-aa-INd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Budgets" id="cEU-aK-Vxl"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="52k-M6-Uyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3394.4000000000001" y="2712.5937031484259"/>
+        </scene>
+        <!--Budgets-->
+        <scene sceneID="4OD-rS-udW">
+            <objects>
+                <navigationController id="IKT-MN-fND" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Budgets" id="YyR-Em-xe8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AiU-5c-Fws">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="RcI-XP-bis" kind="relationship" relationship="rootViewController" id="a2P-8W-T9b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VN-BU-EZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3393" y="1933"/>
+        </scene>
+        <!--Purchases-->
         <scene sceneID="muC-db-OhP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V3B-X2-G85" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="YgM-bE-Jym"/>
+                    <tabBarItem key="tabBarItem" title="Purchases" id="YgM-bE-Jym"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E9L-HJ-F68">
@@ -257,9 +335,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHq-ND-smL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="914"/>
+            <point key="canvasLocation" x="-6138" y="1933"/>
         </scene>
-        <!--TBD-->
+        <!--Goals-->
         <scene sceneID="TPW-qK-xy1">
             <objects>
                 <viewController id="AjK-uV-BNA" sceneMemberID="viewController">
@@ -269,11 +347,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bk9-67-5M4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TBD" id="bph-LI-74K"/>
+                    <tabBarItem key="tabBarItem" title="Goals" id="bph-LI-74K"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdM-dA-iw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265" y="4052"/>
+            <point key="canvasLocation" x="3455" y="1933"/>
         </scene>
         <!--SummaryViewController-->
         <scene sceneID="386-Gr-dfh">
@@ -324,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSY-bx-mIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245.59999999999999" y="2426.5367316341831"/>
+            <point key="canvasLocation" x="-1047" y="1933"/>
         </scene>
         <!--Settings-->
         <scene sceneID="TKf-zo-PnJ">
@@ -353,36 +431,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQf-Ks-YIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="3325"/>
-        </scene>
-        <!--Budgets-->
-        <scene sceneID="GfH-WH-gDH">
-            <objects>
-                <tableViewController id="4en-Ra-lkB" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Sf-UI-G3e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="R5i-cc-ger">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R5i-cc-ger" id="WSu-ix-Ypu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4en-Ra-lkB" id="hcz-IK-SxD"/>
-                            <outlet property="delegate" destination="4en-Ra-lkB" id="VIl-OW-DrB"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Budgets" id="cy8-Gd-Vyq"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7bJ-sE-P10" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="266" y="1681"/>
+            <point key="canvasLocation" x="1127" y="1933"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yH2-YJ-A0w">
@@ -396,7 +445,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="V3B-X2-G85" kind="relationship" relationship="viewControllers" id="hhw-gr-FDR"/>
-                        <segue destination="4en-Ra-lkB" kind="relationship" relationship="viewControllers" id="OfQ-WY-ZkU"/>
+                        <segue destination="IKT-MN-fND" kind="relationship" relationship="viewControllers" id="Cgc-24-Lk2"/>
                         <segue destination="uS4-pa-uFf" kind="relationship" relationship="viewControllers" id="d6c-02-PP9"/>
                         <segue destination="vFU-LX-Pre" kind="relationship" relationship="viewControllers" id="tAc-xc-HY3"/>
                         <segue destination="AjK-uV-BNA" kind="relationship" relationship="viewControllers" id="QtG-2g-dRV"/>
@@ -404,7 +453,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqw-Cl-JSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2353" y="2316"/>
+            <point key="canvasLocation" x="-1046" y="438"/>
         </scene>
     </scenes>
     <resources>

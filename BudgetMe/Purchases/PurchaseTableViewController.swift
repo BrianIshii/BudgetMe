@@ -11,7 +11,7 @@ import os.log
 
 class PurchaseTableViewController: UITableViewController {
     var purchases = [Purchase]()
-    var fileName = "purchases"
+    var fileName = Purchase.fileName
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,23 +20,7 @@ class PurchaseTableViewController: UITableViewController {
         purchases += Purchase.loadPurchasesOrDefault(fileName: fileName)
     }
     
-    private func savePurchases(purchases: [Purchase]) {
-        
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "json")  {
-            print("saving")
-            let jsonData = try! JSONEncoder().encode(purchases)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-//            print(jsonData)
-//            print(url)
-            do {
-                try jsonData.write(to: url, options: .atomic)
-            } catch {
-                print("could not save purchases")
-            }
-        } else {
-            print("failed to save")
-        }
-    }
+
 
     struct ResponseData: Decodable, Encodable {
         var purchases: [Purchase]
@@ -47,13 +31,14 @@ class PurchaseTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             purchases.remove(at: indexPath.row)
-            savePurchases(purchases: purchases)
+            Purchase.trySavePurchases(purchases: purchases)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
+    // coming back to view
     @IBAction func unwindToPurchasesList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ViewController {
             let purchase = sourceViewController.purchase
@@ -65,7 +50,7 @@ class PurchaseTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
         
-        savePurchases(purchases: purchases)
+        Purchase.trySavePurchases(purchases: purchases)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

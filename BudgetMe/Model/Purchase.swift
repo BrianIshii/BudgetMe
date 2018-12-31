@@ -8,9 +8,10 @@
 
 import Foundation
 class Purchase: Codable {
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("purchases")
-    
+    static let fileName = "purchases"
+    //static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    //static let ArchiveURL = DocumentsDirectory.appendingPathComponent(fileName)
+
     var total: UnitedStatesCurrency;
     var company: Company;
     var category: PurchaseCategory;
@@ -54,10 +55,10 @@ class Purchase: Codable {
     }
     
     public static func loadPurchasesOrDefault(fileName: String) -> [Purchase] {
-        if let savedPurchases = Purchase.loadPurchases(fileName: fileName) {
+        if let savedPurchases = loadPurchases(fileName: fileName) {
             return savedPurchases
         } else {
-            return Purchase.loadSamplePurchases()
+            return loadSamplePurchases()
         }
     }
     
@@ -83,5 +84,29 @@ class Purchase: Codable {
         let purchase3 = Purchase(total: UnitedStatesCurrency(dollars: 40, cents: 00) ?? UnitedStatesCurrency(), company: Company(name: "Shell"), category: PurchaseCategory(name: "car", color: "green"), paymentType: PaymentType())
         
         return [purchase1, purchase2, purchase3]
+    }
+    
+    public static func trySavePurchases(purchases: [Purchase]) {
+        let didSave = savePurchases(purchases: purchases)
+        
+        if (!didSave) {
+            print("could not save purchases")
+        }
+    }
+    
+    private static func savePurchases(purchases: [Purchase]) -> Bool {
+        if let url = Bundle.main.url(forResource: Purchase.fileName, withExtension: "json")  {
+            let jsonData = try! JSONEncoder().encode(purchases)
+            //print("saving")
+            //let jsonString = String(data: jsonData, encoding: .utf8)!
+            do {
+                try jsonData.write(to: url, options: .atomic)
+            } catch {
+                return false
+            }
+        } else {
+            return false
+        }
+        return true
     }
 }
