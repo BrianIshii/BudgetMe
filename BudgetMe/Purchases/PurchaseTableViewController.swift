@@ -11,13 +11,12 @@ import os.log
 
 class PurchaseTableViewController: UITableViewController {
     var purchases = [Purchase]()
-    var fileName = Purchase.fileName
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //use the edit button
         navigationItem.leftBarButtonItem = editButtonItem
-        purchases += Purchase.loadPurchasesOrDefault(fileName: fileName)
+        purchases += PurchaseDatabaseAccess.loadPurchasesOrDefault()
     }
     
 
@@ -31,7 +30,7 @@ class PurchaseTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             purchases.remove(at: indexPath.row)
-            Purchase.trySavePurchases(purchases: purchases)
+            PurchaseDatabaseAccess.trySavePurchases(purchases: purchases)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -50,7 +49,7 @@ class PurchaseTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
         
-        Purchase.trySavePurchases(purchases: purchases)
+        PurchaseDatabaseAccess.trySavePurchases(purchases: purchases)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

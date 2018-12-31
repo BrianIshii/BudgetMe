@@ -13,6 +13,8 @@
 		7641A47B21D9F0D8006977F5 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A47A21D9F0D8006977F5 /* BudgetTableViewCell.swift */; };
 		7641A47D21D9F0F5006977F5 /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A47C21D9F0F5006977F5 /* BudgetTableViewController.swift */; };
 		7641A47F21DA002F006977F5 /* budgets.json in Resources */ = {isa = PBXBuildFile; fileRef = 7641A47E21DA002F006977F5 /* budgets.json */; };
+		7641A48421DACC74006977F5 /* BudgetDatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A48321DACC74006977F5 /* BudgetDatabaseAccess.swift */; };
+		7641A48621DACE44006977F5 /* PurchaseDatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A48521DACE44006977F5 /* PurchaseDatabaseAccess.swift */; };
 		7693CE8421C8C50F001A50C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CE8321C8C50F001A50C1 /* AppDelegate.swift */; };
 		7693CE8621C8C50F001A50C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CE8521C8C50F001A50C1 /* ViewController.swift */; };
 		7693CE8921C8C50F001A50C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7693CE8721C8C50F001A50C1 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		7641A47A21D9F0D8006977F5 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		7641A47C21D9F0F5006977F5 /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		7641A47E21DA002F006977F5 /* budgets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = budgets.json; sourceTree = "<group>"; };
+		7641A48321DACC74006977F5 /* BudgetDatabaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDatabaseAccess.swift; sourceTree = "<group>"; };
+		7641A48521DACE44006977F5 /* PurchaseDatabaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDatabaseAccess.swift; sourceTree = "<group>"; };
 		7693CE8021C8C50F001A50C1 /* BudgetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7693CE8321C8C50F001A50C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7693CE8521C8C50F001A50C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 			path = Purchases;
 			sourceTree = "<group>";
 		};
+		7641A48021DACB8F006977F5 /* DatabaseAccess */ = {
+			isa = PBXGroup;
+			children = (
+				7641A48321DACC74006977F5 /* BudgetDatabaseAccess.swift */,
+				7641A48521DACE44006977F5 /* PurchaseDatabaseAccess.swift */,
+			);
+			path = DatabaseAccess;
+			sourceTree = "<group>";
+		};
 		7693CE7721C8C50E001A50C1 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 		7693CE8221C8C50F001A50C1 /* BudgetMe */ = {
 			isa = PBXGroup;
 			children = (
+				7641A48021DACB8F006977F5 /* DatabaseAccess */,
 				7641A47E21DA002F006977F5 /* budgets.json */,
 				7696378E21CC315B008BDD22 /* purchases.json */,
 				7641A47521D9E458006977F5 /* Purchases */,
@@ -342,7 +356,9 @@
 				7693CEBE21C99729001A50C1 /* PurchaseTableViewCell.swift in Sources */,
 				7693CE8621C8C50F001A50C1 /* ViewController.swift in Sources */,
 				7693CE8421C8C50F001A50C1 /* AppDelegate.swift in Sources */,
+				7641A48421DACC74006977F5 /* BudgetDatabaseAccess.swift in Sources */,
 				7693CEBB21C8C555001A50C1 /* PaymentType.swift in Sources */,
+				7641A48621DACE44006977F5 /* PurchaseDatabaseAccess.swift in Sources */,
 				7641A47D21D9F0F5006977F5 /* BudgetTableViewController.swift in Sources */,
 				7693CEBA21C8C555001A50C1 /* PurchaseCategory.swift in Sources */,
 				7641A46F21D9DEFF006977F5 /* Budget.swift in Sources */,

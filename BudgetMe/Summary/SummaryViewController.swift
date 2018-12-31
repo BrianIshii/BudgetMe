@@ -10,7 +10,6 @@ import UIKit
 
 class SummaryViewController: UIViewController {
     var purchases = [Purchase]()
-    var fileName = "purchases"
     var total = UnitedStatesCurrency()
     @IBOutlet weak var totalLabel: UILabel!
     
@@ -28,7 +27,7 @@ class SummaryViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        purchases = Purchase.loadPurchasesOrDefault(fileName: fileName)
+        purchases = PurchaseDatabaseAccess.loadPurchasesOrDefault()
         
         total = UnitedStatesCurrency()
         for purchase in purchases {

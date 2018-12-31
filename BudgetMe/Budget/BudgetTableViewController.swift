@@ -10,20 +10,18 @@ import UIKit
 
 class BudgetTableViewController: UITableViewController {
     var budgets = [Budget]()
-    var fileName = Budget.budgetFileName
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        budgets += Budget.loadBudgetsOrDefault(fileName: fileName)
+        budgets += BudgetDatabaseAccess.loadBudgetsOrDefault()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
