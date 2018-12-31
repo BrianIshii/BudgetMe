@@ -71,7 +71,7 @@ public class UnitedStatesCurrency : Currency, Codable {
         } else {
             s = "$\(dollars).0\(cents)"
         }
-        print(s)
+        //print(s)
         return s
     }
     

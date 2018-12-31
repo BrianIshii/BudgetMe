@@ -18,13 +18,13 @@ class SummaryViewController: UIViewController {
         super.viewDidLoad()
         //use the edit button
         navigationItem.leftBarButtonItem = editButtonItem
-        purchases = Purchase.loadPurchasesOrDefault(fileName: fileName)
-        total = UnitedStatesCurrency()
-        for purchase in purchases {
-            total = total.add(other: purchase.total)
-        }
-        
-        totalLabel.text = total.display()
+//        purchases = Purchase.loadPurchasesOrDefault(fileName: fileName)
+//        total = UnitedStatesCurrency()
+//        for purchase in purchases {
+//            total = total.add(other: purchase.total)
+//        }
+//
+//        totalLabel.text = total.display()
     }
     
     override func viewDidAppear(_ animated: Bool) {

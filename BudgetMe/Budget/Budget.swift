@@ -56,7 +56,7 @@ public class Budget: Codable {
                 let jsonData = try decoder.decode([Budget].self, from: data)
                 return jsonData
             } catch {
-                print("cannot load budgets ")
+                print("cannot load budgets")
             }
         }
         return nil

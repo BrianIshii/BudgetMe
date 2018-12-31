@@ -37,7 +37,7 @@ class BudgetTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "BudgetTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? BudgetTableViewCell else  {
-            fatalError("The dequeued cell is not an instance of PurchaseTableViewCell.")
+            fatalError("The dequeued cell is not an instance of BudgetTableViewCell.")
         }
 
         let budget = budgets[indexPath.row]

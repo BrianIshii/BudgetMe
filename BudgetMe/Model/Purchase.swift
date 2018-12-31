@@ -70,7 +70,7 @@ class Purchase: Codable {
                 let jsonData = try decoder.decode([Purchase].self, from: data)
                 return jsonData
             } catch {
-                print("cannot load purchases method")
+                print("cannot load purchases")
             }
         }
         return nil
