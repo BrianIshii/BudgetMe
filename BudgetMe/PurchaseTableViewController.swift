@@ -17,22 +17,7 @@ class PurchaseTableViewController: UITableViewController {
         super.viewDidLoad()
         //use the edit button
         navigationItem.leftBarButtonItem = editButtonItem
-        print("hi")
-        if let savedPurchases = loadPurchases(fileName: fileName) {
-            purchases += savedPurchases
-        } else {
-            loadSamplePurchases()
-        }
-    }
-    
-    private func loadSamplePurchases() {
-        let purchase1 = Purchase(total: UnitedStatesCurrency(dollars: 1, cents: 9) ?? UnitedStatesCurrency(), company: Company(name: "McDonald's"), category: PurchaseCategory(name: "food", color: "blue"), paymentType: PaymentType())
-        
-        let purchase2 = Purchase(total: UnitedStatesCurrency(dollars: 10, cents: 99) ?? UnitedStatesCurrency(), company: Company(name: "Game Stop"), category: PurchaseCategory(name: "games", color: "red"), paymentType: PaymentType())
-        
-        let purchase3 = Purchase(total: UnitedStatesCurrency(dollars: 40, cents: 00) ?? UnitedStatesCurrency(), company: Company(name: "Shell"), category: PurchaseCategory(name: "car", color: "green"), paymentType: PaymentType())
-        
-        purchases += [purchase1, purchase2, purchase3]
+        purchases += Purchase.loadPurchasesOrDefault(fileName: fileName)
     }
     
     private func savePurchases(purchases: [Purchase]) {
@@ -56,21 +41,6 @@ class PurchaseTableViewController: UITableViewController {
     struct ResponseData: Decodable, Encodable {
         var purchases: [Purchase]
     }
-    
-    func loadPurchases(fileName: String) -> [Purchase]? {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([Purchase].self, from: data)
-                return jsonData
-            } catch {
-                print("cannot load purchases method")
-            }
-        }
-        return nil
-    }
-    
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

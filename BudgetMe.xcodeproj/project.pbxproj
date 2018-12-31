@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7641A46F21D9DEFF006977F5 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A46E21D9DEFF006977F5 /* Budget.swift */; };
+		7641A47221D9DF6C006977F5 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A47121D9DF6C006977F5 /* SummaryViewController.swift */; };
+		7641A47421D9E391006977F5 /* UnitedStatesCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7641A47321D9E391006977F5 /* UnitedStatesCurrencyTests.swift */; };
 		7693CE8421C8C50F001A50C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CE8321C8C50F001A50C1 /* AppDelegate.swift */; };
 		7693CE8621C8C50F001A50C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CE8521C8C50F001A50C1 /* ViewController.swift */; };
 		7693CE8921C8C50F001A50C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7693CE8721C8C50F001A50C1 /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7641A46E21D9DEFF006977F5 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		7641A47121D9DF6C006977F5 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		7641A47321D9E391006977F5 /* UnitedStatesCurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitedStatesCurrencyTests.swift; sourceTree = "<group>"; };
 		7693CE8021C8C50F001A50C1 /* BudgetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7693CE8321C8C50F001A50C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7693CE8521C8C50F001A50C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +98,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7641A46D21D9DEC1006977F5 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				7641A46E21D9DEFF006977F5 /* Budget.swift */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		7641A47021D9DF4D006977F5 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				7641A47121D9DF6C006977F5 /* SummaryViewController.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		7641A47521D9E458006977F5 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		7693CE7721C8C50E001A50C1 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +144,9 @@
 		7693CE8221C8C50F001A50C1 /* BudgetMe */ = {
 			isa = PBXGroup;
 			children = (
+				7641A47521D9E458006977F5 /* New Group */,
+				7641A47021D9DF4D006977F5 /* Summary */,
+				7641A46D21D9DEC1006977F5 /* Budget */,
 				7696379021CC76D9008BDD22 /* Model */,
 				7696378E21CC315B008BDD22 /* purchases.json */,
 				7693CE8321C8C50F001A50C1 /* AppDelegate.swift */,
@@ -134,6 +166,7 @@
 			children = (
 				7693CE9821C8C50F001A50C1 /* BudgetMeTests.swift */,
 				7693CE9A21C8C50F001A50C1 /* Info.plist */,
+				7641A47321D9E391006977F5 /* UnitedStatesCurrencyTests.swift */,
 			);
 			path = BudgetMeTests;
 			sourceTree = "<group>";
@@ -301,7 +334,9 @@
 				7693CE8421C8C50F001A50C1 /* AppDelegate.swift in Sources */,
 				7693CEBB21C8C555001A50C1 /* PaymentType.swift in Sources */,
 				7693CEBA21C8C555001A50C1 /* PurchaseCategory.swift in Sources */,
+				7641A46F21D9DEFF006977F5 /* Budget.swift in Sources */,
 				7693CEBC21C8C555001A50C1 /* Company.swift in Sources */,
+				7641A47221D9DF6C006977F5 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7693CE9921C8C50F001A50C1 /* BudgetMeTests.swift in Sources */,
+				7641A47421D9E391006977F5 /* UnitedStatesCurrencyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

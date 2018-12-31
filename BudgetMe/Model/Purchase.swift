@@ -39,7 +39,6 @@ class Purchase: Codable {
         paymentType = try container.decode(PaymentType.self, forKey: .paymentType)
     }
     
-
     init() {
         self.total = UnitedStatesCurrency();
         self.company = Company();
@@ -54,4 +53,35 @@ class Purchase: Codable {
         self.paymentType = paymentType;
     }
     
+    public static func loadPurchasesOrDefault(fileName: String) -> [Purchase] {
+        if let savedPurchases = Purchase.loadPurchases(fileName: fileName) {
+            return savedPurchases
+        } else {
+            return Purchase.loadSamplePurchases()
+        }
+    }
+    
+    private static func loadPurchases(fileName: String) -> [Purchase]? {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode([Purchase].self, from: data)
+                return jsonData
+            } catch {
+                print("cannot load purchases method")
+            }
+        }
+        return nil
+    }
+    
+    private static func loadSamplePurchases() -> [Purchase] {
+        let purchase1 = Purchase(total: UnitedStatesCurrency(dollars: 1, cents: 9) ?? UnitedStatesCurrency(), company: Company(name: "McDonald's"), category: PurchaseCategory(name: "food", color: "blue"), paymentType: PaymentType())
+        
+        let purchase2 = Purchase(total: UnitedStatesCurrency(dollars: 10, cents: 99) ?? UnitedStatesCurrency(), company: Company(name: "Game Stop"), category: PurchaseCategory(name: "games", color: "red"), paymentType: PaymentType())
+        
+        let purchase3 = Purchase(total: UnitedStatesCurrency(dollars: 40, cents: 00) ?? UnitedStatesCurrency(), company: Company(name: "Shell"), category: PurchaseCategory(name: "car", color: "green"), paymentType: PaymentType())
+        
+        return [purchase1, purchase2, purchase3]
+    }
 }

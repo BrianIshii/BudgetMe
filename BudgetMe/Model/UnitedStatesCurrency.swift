@@ -8,8 +8,9 @@
 
 import Foundation
 public class UnitedStatesCurrency : Currency, Codable {
-    var dollars: Int
-    var cents: Int
+    private var dollars: Int
+    private var cents: Int
+    
     enum CodingKeys: Int, CodingKey {
         case dollars
         case cents
@@ -100,5 +101,25 @@ public class UnitedStatesCurrency : Currency, Codable {
         }
         
         return formatter.string(from: number)!
+    }
+    
+    public func add(other: UnitedStatesCurrency) -> UnitedStatesCurrency {
+        var totalCents = other.getCents() + cents
+        var totalDollars = other.getDollars() + dollars
+
+        if (totalCents > 99) {
+            let extraDollars = totalCents / 100
+            totalDollars += extraDollars
+            totalCents -= extraDollars * 100
+        }
+        return UnitedStatesCurrency(dollars: totalDollars, cents: totalCents) ?? UnitedStatesCurrency()
+    }
+    
+    public func getCents() -> Int {
+        return cents
+    }
+    
+    public func getDollars() -> Int {
+        return dollars
     }
 }

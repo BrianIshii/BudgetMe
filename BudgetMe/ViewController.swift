@@ -63,7 +63,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     private func updateSaveButtonState() {
         let text = totalTextField.text ?? ""
-        submitButton.isEnabled = !text.isEmpty
+        if (text == "$0.00") {
+            submitButton.isEnabled = false
+        } else {
+            submitButton.isEnabled = true
+        }
+        print(submitButton.isEnabled)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
