@@ -19,8 +19,6 @@ class TransactionTableViewController: UITableViewController {
         purchases += PurchaseDatabaseAccess.loadPurchasesOrDefault()
     }
     
-
-
     struct ResponseData: Decodable, Encodable {
         var purchases: [Purchase]
     }
@@ -47,6 +45,14 @@ class TransactionTableViewController: UITableViewController {
             
             purchases.append(purchase ?? Purchase())
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+        } else if let sourceViewController = sender.source as? TransactionViewController {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                let transaction = sourceViewController.transaction
+                print("other unwind")
+                print(transaction.category.display())
+                purchases[selectedIndexPath.row] = transaction
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
         }
         
         PurchaseDatabaseAccess.trySavePurchases(purchases: purchases)
@@ -72,7 +78,9 @@ class TransactionTableViewController: UITableViewController {
         let endIndex = purchase.time.firstIndex(of: " ") ?? purchase.time.endIndex
         let startIndex = purchase.time.firstIndex(of: "-") ?? purchase.time.endIndex
         let range = purchase.time.index(after: startIndex)..<endIndex
-        print(purchase.time[range])
+        
+        
+        //print(purchase.time[range])
         //print(purchase.time.firstIndex(of: "-") ?? purchase.time.endIndex)
         //let beginning = purchase.time[startIndex..<index]
         //let newString = String(beginning)
@@ -113,7 +121,7 @@ class TransactionTableViewController: UITableViewController {
             transactionViewController.transaction = selectedTransaction
             
         default:
-            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
  
