@@ -86,4 +86,35 @@ class TransactionTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+            
+        case "AddItem":
+            os_log("Adding a new transaction.", log: OSLog.default, type: .debug)
+        case "ShowDetail":
+            guard let transactionViewController = segue.destination as? TransactionViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedTransactionCell = sender as? TransactionTableViewCell else {
+                fatalError("Unexpected sender: \(sender ?? "")")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedTransactionCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedTransaction = purchases[indexPath.row]
+            transactionViewController.transaction = selectedTransaction
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+    }
+ 
 }
