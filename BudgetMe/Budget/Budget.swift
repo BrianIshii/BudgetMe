@@ -11,7 +11,7 @@ public class Budget: Codable {
     
     var total: UnitedStatesCurrency;
     var current: UnitedStatesCurrency;
-    var name: String;
+    var name: BudgetCategory;
     
     enum CodingKeys: String, CodingKey {
         case total
@@ -30,12 +30,12 @@ public class Budget: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         total = try container.decode(UnitedStatesCurrency.self, forKey: .total)
         current = try container.decode(UnitedStatesCurrency.self, forKey: .current)
-        name = try container.decode(String.self, forKey: .name)
+        name = try container.decode(BudgetCategory.self, forKey: .name)
     }
     
     init(total: UnitedStatesCurrency, name: String) {
         self.total = total
         self.current = UnitedStatesCurrency()
-        self.name = name
+        self.name = BudgetCategory(name: name, color: "blue")
     }
 }

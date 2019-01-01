@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PurchaseTableViewCell: UITableViewCell {
+class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var purchaseNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!

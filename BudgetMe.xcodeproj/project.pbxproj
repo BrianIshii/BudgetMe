@@ -25,11 +25,11 @@
 		7693CEB721C8C555001A50C1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB121C8C555001A50C1 /* Currency.swift */; };
 		7693CEB821C8C555001A50C1 /* UnitedStatesCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB221C8C555001A50C1 /* UnitedStatesCurrency.swift */; };
 		7693CEB921C8C555001A50C1 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB321C8C555001A50C1 /* Purchase.swift */; };
-		7693CEBA21C8C555001A50C1 /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB421C8C555001A50C1 /* PurchaseCategory.swift */; };
+		7693CEBA21C8C555001A50C1 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB421C8C555001A50C1 /* BudgetCategory.swift */; };
 		7693CEBB21C8C555001A50C1 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB521C8C555001A50C1 /* PaymentType.swift */; };
 		7693CEBC21C8C555001A50C1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEB621C8C555001A50C1 /* Company.swift */; };
-		7693CEBE21C99729001A50C1 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEBD21C99729001A50C1 /* PurchaseTableViewCell.swift */; };
-		7693CEC221C9A2D7001A50C1 /* PurchaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEC121C9A2D7001A50C1 /* PurchaseTableViewController.swift */; };
+		7693CEBE21C99729001A50C1 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEBD21C99729001A50C1 /* TransactionTableViewCell.swift */; };
+		7693CEC221C9A2D7001A50C1 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693CEC121C9A2D7001A50C1 /* TransactionTableViewController.swift */; };
 		7696378F21CC315B008BDD22 /* purchases.json in Resources */ = {isa = PBXBuildFile; fileRef = 7696378E21CC315B008BDD22 /* purchases.json */; };
 /* End PBXBuildFile section */
 
@@ -75,11 +75,11 @@
 		7693CEB121C8C555001A50C1 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		7693CEB221C8C555001A50C1 /* UnitedStatesCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitedStatesCurrency.swift; sourceTree = "<group>"; };
 		7693CEB321C8C555001A50C1 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
-		7693CEB421C8C555001A50C1 /* PurchaseCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseCategory.swift; sourceTree = "<group>"; };
+		7693CEB421C8C555001A50C1 /* BudgetCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
 		7693CEB521C8C555001A50C1 /* PaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		7693CEB621C8C555001A50C1 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
-		7693CEBD21C99729001A50C1 /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
-		7693CEC121C9A2D7001A50C1 /* PurchaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewController.swift; sourceTree = "<group>"; };
+		7693CEBD21C99729001A50C1 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		7693CEC121C9A2D7001A50C1 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		7696378E21CC315B008BDD22 /* purchases.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = purchases.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +111,7 @@
 		7641A46D21D9DEC1006977F5 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				7693CEB421C8C555001A50C1 /* BudgetCategory.swift */,
 				7641A46E21D9DEFF006977F5 /* Budget.swift */,
 				7641A47A21D9F0D8006977F5 /* BudgetTableViewCell.swift */,
 				7641A47C21D9F0F5006977F5 /* BudgetTableViewController.swift */,
@@ -126,13 +127,13 @@
 			path = Summary;
 			sourceTree = "<group>";
 		};
-		7641A47521D9E458006977F5 /* Purchases */ = {
+		7641A47521D9E458006977F5 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
-				7693CEBD21C99729001A50C1 /* PurchaseTableViewCell.swift */,
-				7693CEC121C9A2D7001A50C1 /* PurchaseTableViewController.swift */,
+				7693CEBD21C99729001A50C1 /* TransactionTableViewCell.swift */,
+				7693CEC121C9A2D7001A50C1 /* TransactionTableViewController.swift */,
 			);
-			path = Purchases;
+			path = Transactions;
 			sourceTree = "<group>";
 		};
 		7641A48021DACB8F006977F5 /* DatabaseAccess */ = {
@@ -170,9 +171,9 @@
 				7641A48021DACB8F006977F5 /* DatabaseAccess */,
 				7641A47E21DA002F006977F5 /* budgets.json */,
 				7696378E21CC315B008BDD22 /* purchases.json */,
-				7641A47521D9E458006977F5 /* Purchases */,
-				7641A47021D9DF4D006977F5 /* Summary */,
+				7641A47521D9E458006977F5 /* Transactions */,
 				7641A46D21D9DEC1006977F5 /* Budget */,
+				7641A47021D9DF4D006977F5 /* Summary */,
 				7696379021CC76D9008BDD22 /* Model */,
 				7693CE8321C8C50F001A50C1 /* AppDelegate.swift */,
 				7693CE8521C8C50F001A50C1 /* ViewController.swift */,
@@ -208,7 +209,6 @@
 			children = (
 				7693CEB521C8C555001A50C1 /* PaymentType.swift */,
 				7693CEB621C8C555001A50C1 /* Company.swift */,
-				7693CEB421C8C555001A50C1 /* PurchaseCategory.swift */,
 				7693CEB121C8C555001A50C1 /* Currency.swift */,
 				7693CEB321C8C555001A50C1 /* Purchase.swift */,
 				7693CEB221C8C555001A50C1 /* UnitedStatesCurrency.swift */,
@@ -351,16 +351,16 @@
 			files = (
 				7693CEB721C8C555001A50C1 /* Currency.swift in Sources */,
 				7693CEB921C8C555001A50C1 /* Purchase.swift in Sources */,
-				7693CEC221C9A2D7001A50C1 /* PurchaseTableViewController.swift in Sources */,
+				7693CEC221C9A2D7001A50C1 /* TransactionTableViewController.swift in Sources */,
 				7693CEB821C8C555001A50C1 /* UnitedStatesCurrency.swift in Sources */,
-				7693CEBE21C99729001A50C1 /* PurchaseTableViewCell.swift in Sources */,
+				7693CEBE21C99729001A50C1 /* TransactionTableViewCell.swift in Sources */,
 				7693CE8621C8C50F001A50C1 /* ViewController.swift in Sources */,
 				7693CE8421C8C50F001A50C1 /* AppDelegate.swift in Sources */,
 				7641A48421DACC74006977F5 /* BudgetDatabaseAccess.swift in Sources */,
 				7693CEBB21C8C555001A50C1 /* PaymentType.swift in Sources */,
 				7641A48621DACE44006977F5 /* PurchaseDatabaseAccess.swift in Sources */,
 				7641A47D21D9F0F5006977F5 /* BudgetTableViewController.swift in Sources */,
-				7693CEBA21C8C555001A50C1 /* PurchaseCategory.swift in Sources */,
+				7693CEBA21C8C555001A50C1 /* BudgetCategory.swift in Sources */,
 				7641A46F21D9DEFF006977F5 /* Budget.swift in Sources */,
 				7693CEBC21C8C555001A50C1 /* Company.swift in Sources */,
 				7641A47221D9DF6C006977F5 /* SummaryViewController.swift in Sources */,

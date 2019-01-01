@@ -10,12 +10,22 @@ import UIKit
 
 class BudgetTableViewController: UITableViewController {
     var budgets = [Budget]()
+    var purchases = [Purchase]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         budgets += BudgetDatabaseAccess.loadBudgetsOrDefault()
-        
+        purchases += PurchaseDatabaseAccess.loadPurchasesOrDefault()
+
+        for purchase in purchases {
+            for budget in budgets {
+                if (purchase.category.display() == budget.name.display()) {
+                    budget.current = budget.current.add(other: purchase.total)
+                }
+            }
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,8 +50,8 @@ class BudgetTableViewController: UITableViewController {
 
         let budget = budgets[indexPath.row]
 
-        cell.budgetName.text = budget.name
-        cell.total.text = budget.total.display()
+        cell.budgetName.text = budget.name.display()
+        cell.total.text = "\(budget.current.display()) / \(budget.total.display())"
         
         return cell
     }

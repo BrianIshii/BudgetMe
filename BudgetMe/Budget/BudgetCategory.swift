@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  BudgetCategory.swift
 //  BudgeMe
 //
 //  Created by Brian Ishii on 12/17/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class PurchaseCategory: Codable {
+public class BudgetCategory: Codable {
     private var name: String
     private var color: String
     

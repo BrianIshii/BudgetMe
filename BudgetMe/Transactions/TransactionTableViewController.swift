@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class PurchaseTableViewController: UITableViewController {
+class TransactionTableViewController: UITableViewController {
     var purchases = [Purchase]()
     
     override func viewDidLoad() {
@@ -63,15 +63,24 @@ class PurchaseTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "PurchaseTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PurchaseTableViewCell else  {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TransactionTableViewCell else  {
             fatalError("The dequeued cell is not an instance of PurchaseTableViewCell.")
         }
         
         let purchase = purchases[indexPath.row]
         
+        let endIndex = purchase.time.firstIndex(of: " ") ?? purchase.time.endIndex
+        let startIndex = purchase.time.firstIndex(of: "-") ?? purchase.time.endIndex
+        let range = purchase.time.index(after: startIndex)..<endIndex
+        print(purchase.time[range])
+        //print(purchase.time.firstIndex(of: "-") ?? purchase.time.endIndex)
+        //let beginning = purchase.time[startIndex..<index]
+        //let newString = String(beginning)
+        //print(newString)
+        
         cell.categoryLabel.text = purchase.category.display()
         cell.categoryLabel.backgroundColor = UIColor.init(named: purchase.category.displayColor())
-        cell.dateLabel.text = "12/18"
+        cell.dateLabel.text = String(purchase.time[range])
         cell.purchaseNameLabel.text = purchase.company.display()
         cell.totalLabel.text = purchase.total.display()
         
