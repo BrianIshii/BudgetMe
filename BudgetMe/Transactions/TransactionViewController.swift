@@ -22,7 +22,7 @@ class TransactionViewController: UIViewController {
         company.text = transaction.company.display()
         date.text = transaction.time
         
-        transaction.total = UnitedStatesCurrency(dollars: 100, cents: 0) ?? UnitedStatesCurrency()
+        //transaction.total = UnitedStatesCurrency(dollars: 100, cents: 0) ?? UnitedStatesCurrency()
 
         // Do any additional setup after loading the view.
     }

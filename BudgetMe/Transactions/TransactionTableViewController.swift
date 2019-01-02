@@ -48,8 +48,6 @@ class TransactionTableViewController: UITableViewController {
         } else if let sourceViewController = sender.source as? TransactionViewController {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 let transaction = sourceViewController.transaction
-                print("other unwind")
-                print(transaction.category.display())
                 purchases[selectedIndexPath.row] = transaction
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
